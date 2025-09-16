@@ -1,0 +1,20 @@
+name: semantic-seg
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - jupyterlab
+  - ipywidgets
+  - matplotlib
+  - numpy
+  - pandas
+  - scikit-learn
+  - opencv
+  - tqdm
+  - pip
+  - pip:
+      - tensorflow
+      - keras
+      - albumentations
+      - segmentation-models
