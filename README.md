@@ -13,7 +13,7 @@
 ## Project Overview
 This project implements **semantic segmentation** of road scenes, classifying each pixel into semantic classes. Semantic segmentation is essential for autonomous driving and scene understanding. 
 
-The model used is **U-Net with an ResNet50 encoder pretrained on ImageNet**, trained on the **CamVid dataset** with 32 semantic classes.
+The model used is **U-Net with a ResNet50 encoder pretrained on ImageNet**, trained on the **CamVid dataset** with 32 semantic classes.
 
 ---
 
@@ -82,7 +82,7 @@ The model used is **U-Net with an ResNet50 encoder pretrained on ImageNet**, tra
    - One-hot encoded masks
      
 3. **Model**
-   - U-Net with an ResNet50 backbone
+   - U-Net with a ResNet50 backbone
    - Loss: `Categorical CrossEntropy + Focal Loss`
    - Metrics: IoU, F1-score
      
@@ -204,7 +204,7 @@ model = load_model(
 ---
 
 ## Conclusion
-This project demonstrates the effectiveness of U-Net with an ResNet50 backbone for road scene segmentation on the CamVid dataset. The model achieves a strong balance between accuracy and efficiency, making it suitable for real-world applications such as autonomous driving and advanced driver assistance systems (ADAS).
+This project demonstrates the effectiveness of U-Net with a ResNet50 backbone for road scene segmentation on the CamVid dataset. The model achieves a strong balance between accuracy and efficiency, making it suitable for real-world applications such as autonomous driving and advanced driver assistance systems (ADAS).
 
 > **Note:** Training was performed on CPU due to hardware constraints.
 > 
