@@ -1,11 +1,11 @@
 jupyterlab
 matplotlib
-numpy
+numpy<2
 pandas
 scikit-learn
 opencv-python
-tensorflow
-keras
+tensorflow==2.10.0
+keras==2.10.0
 albumentations
 segmentation-models
 tqdm

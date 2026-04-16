@@ -13,14 +13,14 @@
 ## Project Overview
 This project implements **semantic segmentation** of road scenes, classifying each pixel into semantic classes. Semantic segmentation is essential for autonomous driving and scene understanding. 
 
-The model used is **U-Net with an EfficientNetB0 encoder pretrained on ImageNet**, trained on the **CamVid dataset** with 32 semantic classes.
+The model used is **U-Net with an ResNet50 encoder pretrained on ImageNet**, trained on the **CamVid dataset** with 32 semantic classes.
 
 ---
 
 ## Key Features
-- Implemented **U-Net** with **EfficientNetB0 encoder** pretrained on ImageNet.
+- Implemented **U-Net** with **ResNet50 encoder** pretrained on ImageNet.
 - Built a **custom data generator** for efficient batch loading, augmentation, and one-hot encoding.
-- Achieved **IoU: 0.6100, F1: 0.6450** on CamVid test set.
+- Achieved **IoU: 0.6211, F1: 0.6562** on CamVid test set.
 - Automated training with **Early Stopping, LR Scheduling, and Model Checkpointing**.
 - Generated **training curves and sample prediction visualizations** for model interpretability.
 
@@ -65,8 +65,8 @@ The model used is **U-Net with an EfficientNetB0 encoder pretrained on ImageNet*
     ├── README.md
     ├── requirements.txt
     ├── road_scene_segmentation.ipynb
-    ├── unet_efficientnetb0.keras
-    └── unet_efficientnetb0.weights.h5
+    ├── unet_resnet50.keras
+    └── unet_resnet50.weights.h5
 ```
 
 ---
@@ -82,7 +82,7 @@ The model used is **U-Net with an EfficientNetB0 encoder pretrained on ImageNet*
    - One-hot encoded masks
      
 3. **Model**
-   - U-Net with an EfficientNetB0 backbone
+   - U-Net with an ResNet50 backbone
    - Loss: `Categorical CrossEntropy + Focal Loss`
    - Metrics: IoU, F1-score
      
@@ -101,9 +101,9 @@ The model used is **U-Net with an EfficientNetB0 encoder pretrained on ImageNet*
 ## Model Performance
 | Metric | Score |
 | --- | --- |
-| IoU | 0.6100 |
-| F1 Score | 0.6450 |
-| Test Loss | 0.0181 |
+| IoU | 0.6211 |
+| F1 Score | 0.6562 |
+| Test Loss | 0.0180 |
 
 ### Training curves
 Loss, IoU and F1-score progression across epochs:
@@ -176,12 +176,12 @@ jupyter notebook road_scene_segmentation.ipynb
 ## Saved Model
 - Final trained model:
 ```
-unet_efficientnetb0.keras
+unet_resnet50.keras
 ```
 
 - Best weights:
 ```
-unet_efficientnetb0.weights.h5
+unet_resnet50.weights.h5
 ```
 
 Load model:
@@ -191,7 +191,7 @@ from tensorflow.keras.models import load_model
 import segmentation_models as sm
 
 model = load_model(
-    "unet_efficientnetb0.keras",
+    "unet_resnet50.keras",
     custom_objects={
         "CategoricalCELoss": sm.losses.CategoricalCELoss(),
         "CategoricalFocalLoss": sm.losses.CategoricalFocalLoss(),
@@ -204,11 +204,11 @@ model = load_model(
 ---
 
 ## Conclusion
-This project demonstrates the effectiveness of U-Net with an EfficientNetB0 backbone for road scene segmentation on the CamVid dataset. The model achieves a strong balance between accuracy and efficiency, making it suitable for real-world applications such as autonomous driving and advanced driver assistance systems (ADAS).
+This project demonstrates the effectiveness of U-Net with an ResNet50 backbone for road scene segmentation on the CamVid dataset. The model achieves a strong balance between accuracy and efficiency, making it suitable for real-world applications such as autonomous driving and advanced driver assistance systems (ADAS).
 
 > **Note:** Training was performed on CPU due to hardware constraints.
 > 
-> EfficientNetB0 was chosen as the backbone because it provides a good trade-off between accuracy and efficiency, making it practical for resource-limited environments.
+> ResNet50 was chosen as the backbone due to its proven feature extraction capabilities, wide compability, and strong performance across computer vision tasks.
 
 ---
 
